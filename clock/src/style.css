@@ -1,0 +1,277 @@
+
+/*style标签里面定义的是css样式，css：表示层叠样式表*/
+/*星号键是通用选择器，表示选择html里面所有的元素*/
+
+* {
+    /*把边框向内添加*/
+    box-sizing: border-box;
+}
+
+/*清除默认样式，将它们的外边距，内边距，边框的值初始化为零*/
+
+html,
+body {
+    /*元素的外边距*/
+    margin: 0;
+    /*元素的内边距*/
+    padding: 0;
+    /*元素的边框*/
+    border: 0;
+    /*设置元素的宽高各为100%，将其充满整个容器*/
+    width: 100%;
+    height: 100%;
+}
+
+/*选中class名字为t2的元素，选择class的正确格式是：点(.)＋class的名字*/
+
+.t2 {
+    /*设置元素的宽度为100%*/
+    width: 100%;
+    /*设置元素的高度为100%*/
+    height: 100%;
+    /*radial-gradient() 表示径向渐变*/
+    /*HSLA 颜色值的使用方法：
+    H ：表示(hue) 色调 360表示红色，120表示绿色 240 表示蓝色取值是0～360之间*/
+    /* H：Hue(色调)。0(或360)表示红色，120表示绿色，240表示蓝色，也可取其他数值来指定颜色。取值为：0 - 360
+    S：Saturation(饱和度)。取值为：0.0% - 100.0%
+    L：Lightness(亮度)。取值为：0.0% - 100.0% 
+    A：Alpha透明度。取值0~1之间。 */
+    background: radial-gradient(farthest-side ellipse at 50% 70%,
+        hsla(210, 1%, 78%, 0.73) 100px, rgba(150, 150, 150, 0.7) 400px,
+        hsla(225, 4%, 18%, 0.8) 100%);
+    /*相对定位*/
+    position: relative;
+    /*堆叠顺序*/
+    z-index: -3;
+}
+
+.t3 {
+    width: 350px;
+    height: 350px;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    /*设置元素的左边距*/
+    margin-left: -150px;
+    top: 50%;
+    /*设置元素的上边距*/
+    margin-top: -150px;
+    /*设置元素的圆角*/
+    border-radius: 60px;
+    /*为元素添加径向渐变色*/
+    background-image: radial-gradient(#ffffff 40px, #ddecf2 210px, #d3e3e9);
+}
+
+/*:before 表示在某元素的前面添加内容或样式。
+:before :after必须和content结合使用*/
+
+.t3:before {
+    content: "";
+    /*绝对定位*/
+    position: absolute;
+    /*为元素添加圆角*/
+    border-radius: 60px;
+    /*为元素添加边框阴影*/
+    box-shadow: 0 -4px #b8bdca inset;
+    width: 100%;
+    height: 100%;
+    /*设置元素的透明度 取值是0～1之间，0.5表示半透明*/
+    opacity: 0.6;
+    /*设置元素的模糊效果*/
+    filter: blur(1px);
+    /*-webkit- 谷歌浏览器的内核，也就是说浏览器的私有属性
+    因为filter: blur()是新出的属性，有部分浏览器不支持，所以要添加浏览器的
+    私有属性，便于解决兼容问题。*/
+    -webkit-filter: blur(1px);
+    /*堆叠顺序*/
+    z-index: 2;
+}
+
+/*:after 表示在某元素的后面添加内容或样式*/
+.t3:after {
+    content: "";
+    width: 300px;
+    height: 18px;
+    /*绝对定位*/
+    position: absolute;
+    /*设置元素到顶部的距离*/
+    top: 97%;
+    margin-left: 25px;
+    background-color: #2a2a2b;
+    /*模糊程度*/
+    filter: blur(7px);
+    /*谷歌浏览器的内核*/
+    -webkit-filter: blur(7px);
+    /*IE浏览器的内核*/
+    -ms-filter: blur(7px);
+    /*火狐浏览器的内核*/
+    -moz-filter: blur(7px);
+    /*欧朋浏览器的内核*/
+    -o-filter: blur(7px);
+    /*堆叠顺序，也就是说Z轴的排列顺序*/
+    z-index: -1;
+}
+
+.t4 {
+    width: 210px;
+    height: 210px;
+    /* 表示渐变色 里面两个颜色分别表示渐变的过程 */
+    background-image: radial-gradient(#f9fdff, #d9eaf8);
+    /* 表示给元素添加圆角 */
+    border-radius: 50%;
+    /* 相对定位 */
+    position: relative;
+    /* 设置外边距 */
+    margin: 70px;
+    /* 为元素添加边框阴影 */
+    box-shadow: 0px 0px 28px -8px #eaf7fb;
+    /* 字体颜色 */
+    color: #8da6b8;
+    /* 设置字体大小 */
+    font-size: 25px;
+    /* 设置字体样式 */
+    font-family: '华文彩云';
+    /* 字体加粗 */
+    font-weight: bold;
+}
+
+.t4::before {
+    content: "";
+    /* 绝对定位 */
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    box-shadow: 0px 15px 24px -5px #7a8fae;
+    border-radius: 50%;
+    /* 堆叠顺序 */
+    z-index: 10;
+}
+
+.t4::after {
+    content: "";
+    /* 绝对定位 */
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 0px 4px -4px #7a8fae;
+    border-radius: 50%;
+    z-index: 9;
+}
+
+.hour {
+    /* 绝对定位 */
+    position: absolute;
+}
+
+.hour3 {
+    right: 30px;
+    top: 50%;
+    margin-top: -7px;
+}
+
+.hour6 {
+    left: 50%;
+    margin-left: -7px;
+    bottom: 21px;
+}
+
+.hour9 {
+    left: 30px;
+    top: 50%;
+    margin-top: -7px;
+}
+
+.hour12 {
+    left: 50%;
+    margin-left: -15px;
+    top: 21px;
+}
+
+#miao,
+#fen,
+#shi {
+    position: absolute;
+    height: 210px;
+    width: 10px;
+    /* background-color: red; */
+    left: 50%;
+    margin-left: -5px;
+}
+
+#miao {
+    z-index: 23;
+}
+
+#fen {
+    z-index: 22;
+}
+
+#shi {
+    z-index: 21;
+}
+
+#shi::after {
+    content: "";
+    height: 60px;
+    width: 6px;
+    background-color: black;
+    position: absolute;
+    top: 60px;
+    left: 2px;
+    border-radius: 8px;
+}
+
+#fen::after {
+    content: "";
+    height: 70px;
+    width: 3px;
+    background-color: lightgreen;       
+    position: absolute;
+    top: 60px;
+    left: 3px;
+    border-radius: 8px;
+}
+
+#miao::after {
+    content: "";
+    height: 73px;
+    width: 1px;
+    background-color: red;
+    position: absolute;
+    top: 60px;
+    left: 4px;
+    border-radius: 8px;
+}
+
+#poin {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    box-shadow: 0px 3px 8px -1px #0f4873;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    margin-left: -8px;
+    margin-top: -7px;
+    z-index: 999;
+}
+#poin::before,#poin::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: #8ba3b6;
+    position: absolute;
+    border-radius: 50%;
+    z-index: 1;
+}
+#poin::before {
+    width: 16px;
+    height: 16px;
+}
+#poin::after {
+    background-color: #cee3ec;
+    top: 3px;
+    left: 3px;
+}
